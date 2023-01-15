@@ -41,25 +41,27 @@ title('Accélération de A en fonction de thêta')
 
 %% Cinématique - Mouvement vertical
 
-sin_teta = -sqtr(1 - cos(teta).^2)
-cos_teta = -sqtr(1 - sin(teta).^2)
+% Vecteur position y_va
+%y_va = l.*( sin(teta) + ( 1 - (cos(teta) + 1).^2 ).^(1/2) );  
 
-% Vecteur position x_a
-x_ha = 2*l.*cos(teta);.
+y_va = l.*( sin(teta) - ( 2.*cos(teta) + cos(teta).^2 ).^(1/2) );  
 
-subplot(3, 1, 1)
-plot(teta, x_ha)
+subplot(2, 1, 1)
+plot(teta, y_va)
 xlabel('Temps (s)')
-ylabel('Déplacement x_a (m)')
-title('Déplacement horizontal de A en fonction de thêta')
+ylabel('Déplacement y_a (m)')
+title('Déplacement vertical de A en fonction de thêta')
 
-% Vitesse v_a
-v_ha = -2*l*omega_ob.*sin(teta);
+% Vitesse v_va
+%v_va1 = l*omega_ob.*( cos(teta) + ( (sin(2.*teta)-(2.*sin(teta)) / 2*(2 - (cos(teta)).^2 + 2*cos(teta)).^(1/2)) ));
+num1 = sin(2.*teta) + 2.*sin(teta);
+denum1 = 2 .* (( 2.*cos(teta) + cos(teta).^2 ).^(1/2));
+fraction1 = (num1) ./ (denum1);
 
-subplot(3, 1, 2)
-plot(teta, v_ha)
+v_va1 = l*omega_ob.*( cos(teta) + fraction1 );
+
+subplot(2, 1, 2)
+plot(teta, v_va1)
 xlabel('Temps (s)')
 ylabel('Vitesse v_a (m/s)')
 title('Vitesse de A en fonction de thêta')
-
-
