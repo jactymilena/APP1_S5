@@ -19,7 +19,7 @@ subplot(3, 1, 1)
 plot(teta, x_ha)
 xlabel('Temps (s)')
 ylabel('Déplacement x_a (m)')
-title('Déplacement horizontal de A en fonction de thêta')
+title('Déplacement horizontal de A en fonction de \theta')
 
 % Vitesse v_a
 v_ha = -2 * l * omega_ob .* sin(teta);
@@ -100,3 +100,4 @@ axis([(-pi/3) (pi/3) -700 -100])
 xlabel('Temps (s)')
 ylabel('Vitesse v_a (m/s)')
 title('Couple Cb en fonction de phi')
+
