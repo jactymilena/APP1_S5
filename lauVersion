@@ -11,12 +11,15 @@ close all % Efface toutes les figures dans l'espace de travail MATLAB
 l = 0.25;
 Wob = 25;
 dt = 1e-2;
-theta = [0:dt:pi*5]';
+theta = [0:dt:pi/3]';
+phi = -theta;
+phiPrime = -Wob.*cos(theta)./cos(phi);
+phiPrimePrime = ((Wob.^2).*sin(theta)+(phiPrime).^2.*sin(phi))./cos(phi);
 
 %Horizatale
-Xa = 2*l*(cos(theta)+cos(-theta));
-Va = 2*l*(-Wob.*sin(theta)+Wob.*(sin(-theta)));
-Aa = -((Wob).^2)*2*l.*(cos(theta)+(cos(-theta)));
+Xa = 2*l*(cos(theta) + cos (phi));
+Va = 2*l*(-Wob.*sin(theta)-sin(phi).*phiPrime);
+Aa =2*l*((-Wob.^2).*cos(theta)-phiPrime.*cos(phi)+phiPrimePrime.*sin(phi)) ;
 
 figure
 subplot(3,1,1)
