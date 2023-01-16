@@ -10,7 +10,7 @@ l = 0.25;            % m
 dteta = 0.01;
 teta = [0:dteta:(pi/3)]';
 
-%% Partie 1 - Cinématique - Mouvement horizonral 
+%% Partie 1 - Cinématique - Mouvement horizontal 
 
 % Vecteur position x_a
 x_ha = 2 * l .* cos(teta);
@@ -66,22 +66,37 @@ xlabel('Temps (s)')
 ylabel('Vitesse v_a (m/s)')
 title('Vitesse de A en fonction de thêta')
 
-%% Partie 2 - Statique
+%% Partie 2 - Préparation
 
 dphi = 0.01;
 phi = [-(pi/3):dphi:(pi/3)]';
 l0 = 0.5;
 l = 0.25;
 m_a = 100;
-m__ba = 1000;
+m_ba = 1000;
 alpha_ba = 5;
 g = 9.8;
 
-C_B = l*g.*cos(phi).*(m_a-(m__ba/2));
-subplot(2, 1, 1)
-plot(phi, C_B)
-axis([(-pi/3) (pi/3) -1000 -400])
-%xlabel('Temps (s)')
-%ylabel('Vitesse v_a (m/s)')
-%title('Vitesse de A en fonction de thêta')
+%% Partie 2 - Statique et dynamique
 
+% Statique
+
+C_Bs = l*g.*cos(phi).*(m_a-(m_ba/2));
+subplot(2, 1, 1)
+plot(phi, C_Bs)
+axis([(-pi/3) (pi/3) -1000 -400])
+xlabel('Temps (s)')
+ylabel('Vitesse v_a (m/s)')
+title('Couple Cb en fonction de phi')
+
+% Dynamique
+
+m = m_a + m_ba;
+I = m*l.^2;
+C_Bd = I*alpha_ba - g*l.*cos(phi).*((m_ba/2) - m_a);
+subplot(2, 1, 2)
+plot(phi, C_Bd)
+axis([(-pi/3) (pi/3) -700 -100])
+xlabel('Temps (s)')
+ylabel('Vitesse v_a (m/s)')
+title('Couple Cb en fonction de phi')
