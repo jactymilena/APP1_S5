@@ -1,0 +1,46 @@
+%%Problématique
+
+clc % Efface l'affichage dans l'espace de travail MATLAB
+clear all % Efface toutes les variables dans l'espace de travail MATLAB
+close all % Efface toutes les figures dans l'espace de travail MATLAB
+
+%% Cinétique
+%puisque theta == phi
+% 3 courbes position, vitesse et accélération 
+
+l = 0.25;
+Wob = 25;
+dt = 1e-2;
+theta = [0:dt:pi*5]';
+
+%Horizatale
+Xa = 2*l*(cos(theta)+cos(-theta));
+Va = 2*l*(-Wob.*sin(theta)+Wob.*(sin(-theta)));
+Aa = -((Wob).^2)*2*l.*(cos(theta)+(cos(-theta)));
+
+figure
+subplot(3,1,1)
+plot(theta,Xa);
+xlabel('Thêta')
+ylabel('Déplacement (m)')
+title('Déplacement en X en fonction du thêta')
+
+subplot(3,1,2)
+plot(theta,Va);
+xlabel('Thêta')
+ylabel('Vitesse ()')
+title('Vitesse en X en fonction du thêta')
+
+subplot(3,1,3)
+plot(theta,Aa);
+xlabel('Thêta')
+ylabel('Accélération ()')
+title('Accélération en X en fonction du thêta')
+
+
+%% Dynamique
+%faire courbe du vecteur Cb en fonction de phi pour phi element de [-pi/3, pi/3]
+%(avec accélération de 5rad/s^2 qui reste constant)
+
+%% Statique 
+%faire courbe du vecteur Cb en fonction de phi pour phi element de [-pi/3, pi/3]
