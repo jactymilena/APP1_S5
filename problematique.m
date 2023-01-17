@@ -51,6 +51,7 @@ title('Accélération de A en fonction de thêta')
 y_va = l*(sin(teta) - sqrt(2.*cos(teta)-(cos(teta)).^2));
 %y_va = l.*( sin(teta) + ( (cos(teta).^2) - (2.*cos(teta)) ).^(1/2) );  
 
+figure
 subplot(2, 1, 1)
 plot(teta, y_va)
 xlabel('Angle \theta: 0 \leq \theta \leq \pi/3')
