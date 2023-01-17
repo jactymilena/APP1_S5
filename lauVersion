@@ -24,21 +24,21 @@ Aa =2*l*((-Wob.^2).*cos(theta)-phiPrime.*cos(phi)+phiPrimePrime.*sin(phi)) ;
 figure
 subplot(3,1,1)
 plot(theta,Xa);
-xlabel('Thêta')
-ylabel('Déplacement (m)')
-title('Déplacement en X en fonction du thêta')
+ylabel('Déplacement x_a (m)')
+xlabel('Angle \theta: 0 \leq \theta \leq \pi/3')
+title('Déplacement horizontal de A en fonction de \theta')
 
 subplot(3,1,2)
 plot(theta,Va);
-xlabel('Thêta')
-ylabel('Vitesse ()')
-title('Vitesse en X en fonction du thêta')
+xlabel('Angle \theta: 0 \leq \theta \leq \pi/3')
+ylabel('Vitesse v_a (m/s)')
+title('Vitesse de A en fonction de \theta')
 
 subplot(3,1,3)
 plot(theta,Aa);
-xlabel('Thêta')
-ylabel('Accélération ()')
-title('Accélération en X en fonction du thêta')
+xlabel('Angle \theta: 0 \leq \theta \leq \pi/3')
+ylabel('Accélération \gamma (m/s)')
+title('Accélération de A en fonction de \theta')
 
 
 %% Dynamique
