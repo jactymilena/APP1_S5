@@ -94,7 +94,7 @@ plot(phi, C_Bs)
 %axis([(-pi/3) (pi/3) -1 -0.4])
 xlabel('Angle \theta: -\pi/3 \leq \phi \leq \pi/3')
 ylabel('Couple Cb en statique (N*m)')
-title('Couple Cb en fonction de \phi')
+title('Couple Cb en fonction de \phi en statique')
 
 % Dynamique
 
@@ -106,5 +106,5 @@ plot(phi, C_Bd)
 %axis([(-pi/3) (pi/3) -700 -100])
 xlabel('Angle \theta: -\pi/3 \leq \phi \leq \pi/3')
 ylabel('Couple Cb en dynamique (N*m)')
-title('Couple Cb en fonction de \phi')
+title('Couple Cb en fonction de \phi en dynamique')
 
